@@ -1,11 +1,17 @@
-all:
-		nasm -f macho64 hello_world.s
-		ld -macosx_version_min 10.7.0 -o hello_world hello_world.o
-		./hello_world
+NAME = libasm.a
+ASMSRCS = ft_strlen.s
+ASMOBJS = $(ASMSRCS:.s=.o)
+
+%.o : %.s
+	nasm -f macho64 $<
+
+all: $(NAME)
+
+$(NAME) : $(ASMOBJS)
+	ar rc $(NAME) $(ASMOBJS)
 
 clean: 
-		rm -f hello_world.o
+		rm -f $(ASMOBJS)
 
-fclean:
-		rm -f hello_world.o
-		rm -f hello_world
+fclean: clean
+		rm -f $(NAME)
