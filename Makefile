@@ -1,5 +1,5 @@
 NAME = libasm.a
-ASMSRCS = ft_strlen.s
+ASMSRCS = ft_strlen.s ft_strcmp.s
 ASMOBJS = $(ASMSRCS:.s=.o)
 
 %.o : %.s
