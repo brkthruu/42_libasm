@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 19:21:35 by hjung             #+#    #+#             */
-/*   Updated: 2020/11/30 16:02:21 by hjung            ###   ########.fr       */
+/*   Updated: 2020/12/02 19:54:17 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,13 @@
 
 int main()
 {
+    char    dest1[10];
+    char    dest2[10];
+    
     printf("length : %d\n", (int)strlen("Pizza"));
     printf("length : %d\n", (int)ft_strlen("Pizza"));
 
+    printf("-------FT_STRCMP-----------\n");
     printf("result of strcmp : %d\n", strcmp("\0", "\200"));
     printf("result of ft_strcmp : %d\n", ft_strcmp("\0", "\200"));
     printf("---------------------------\n");
@@ -42,5 +46,9 @@ int main()
     printf("result of strcmp : %d\n", strcmp("a\200\0", "abcd"));
     printf("result of ft_strcmp : %d\n", ft_strcmp("a\200\0", "abcd"));
     printf("---------------------------\n");
+
+    printf("-------FT_STRCPY-----------\n");
+    printf("result of strcpy : %s\n", strcpy(dest1, "abcd"));
+    printf("result of ft_strcpy : %s\n", ft_strcpy(dest2, "abcd"));
     return (0);
 }
