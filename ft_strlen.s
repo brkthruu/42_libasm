@@ -1,4 +1,4 @@
-; size_t ft_strlen(const char *str)
+; size_t ft_strlen(const char *rdi);
 
 section.text:
 	global _ft_strlen

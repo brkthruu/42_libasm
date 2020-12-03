@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 19:21:35 by hjung             #+#    #+#             */
-/*   Updated: 2020/12/02 19:54:17 by hjung            ###   ########.fr       */
+/*   Updated: 2020/12/03 16:11:26 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 #include "libasm.h"
 
 int main()
@@ -50,5 +51,11 @@ int main()
     printf("-------FT_STRCPY-----------\n");
     printf("result of strcpy : %s\n", strcpy(dest1, "abcd"));
     printf("result of ft_strcpy : %s\n", ft_strcpy(dest2, "abcd"));
+
+    printf("----- FT_WRITE -----\n");
+	write(1, "hello\n", 6);
+    ft_write(1, "hello\n", 6);
+    printf("returned value : %zd\n", write(1, "hello\n", -3));
+    printf("returned value : %zd\n", ft_write(1, "hello\n", -3));
     return (0);
 }

@@ -1,15 +1,15 @@
-; char *strcpy(char * dst, const char * src)
+; char *strcpy(char *rdi, const char *rsi);
 
-section.text:
-		global _ft_strcpy
+section .text
+	global _ft_strcpy
 
 _ft_strcpy:
-		cmp	rsi, 0
-		jz	end
+	cmp	rsi, 0
+	jz	end
     xor rcx, rcx
-		xor rbx, rbx
+	xor rbx, rbx
 
-copy_loop:
+	copy_loop:
 		cmp byte[rsi + rcx], 0
 		jz end
 		mov bl, byte[rsi + rcx]
@@ -17,6 +17,6 @@ copy_loop:
 		inc rcx
 		jmp copy_loop
 
-end:
+	end:
 		mov rax, rdi
 		ret

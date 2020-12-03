@@ -1,9 +1,9 @@
-; int strcmp(const char *s1, const char *s2)
+; int strcmp(const char *rdi, const char *rsi);
 
 section .text
 	global _ft_strcmp
 
-_ft_strcmp:							; rdi = s1, rsi = s2
+_ft_strcmp:
 	push	rcx
 	mov		rcx, -1
 
