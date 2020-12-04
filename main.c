@@ -3,17 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hjung <hjung@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 19:21:35 by hjung             #+#    #+#             */
-/*   Updated: 2020/12/03 16:11:26 by hjung            ###   ########.fr       */
+/*   Updated: 2020/12/04 12:03:52 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include "libasm.h"
+
+#include <errno.h>
 
 int main()
 {
@@ -56,6 +59,27 @@ int main()
 	write(1, "hello\n", 6);
     ft_write(1, "hello\n", 6);
     printf("returned value : %zd\n", write(1, "hello\n", -3));
+    printf("Error No : %d\n", errno);
     printf("returned value : %zd\n", ft_write(1, "hello\n", -3));
+    printf("Error No : %d\n", errno);
+    printf("returned value : %zd\n", write(-1, "hello\n", 3));
+    printf("Error No : %d\n", errno);
+    printf("returned value : %zd\n", ft_write(-1, "hello\n", 3));
+    printf("Error No : %d\n", errno);
+
+    printf("----- FT_READ -----\n");
+    ssize_t     ret_read;
+    char		buf[5000];
+    int         fd;
+    fd = open("ft_write.s", O_RDONLY);
+	ret_read = ft_read(fd, buf, 42);
+	buf[ret_read] = '\0';
+	printf("|%s|\nreturn : [%zd]\n", buf, ret_read);
+    close(fd);
+    fd = open("ft_write.s", O_RDONLY);
+	ret_read = read(fd, buf, 42);
+	buf[ret_read] = '\0';
+	printf("|%s|\nreturn : [%zd]\n", buf, ret_read);
+    close(fd);
     return (0);
 }

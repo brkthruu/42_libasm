@@ -6,7 +6,7 @@ section .text
 _ft_strcpy:
 	cmp	rsi, 0
 	jz	end
-    xor rcx, rcx
+  xor rcx, rcx
 	xor rbx, rbx
 
 	copy_loop:
