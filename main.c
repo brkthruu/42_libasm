@@ -6,7 +6,7 @@
 /*   By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 19:21:35 by hjung             #+#    #+#             */
-/*   Updated: 2020/12/04 12:03:52 by hjung            ###   ########.fr       */
+/*   Updated: 2020/12/06 07:38:00 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ int main()
     printf("result of ft_strcmp : %d\n", ft_strcmp("a\200\0", "abcd"));
     printf("---------------------------\n");
 
+    printf("result of strcmp : %d\n", strcmp("", ""));
+    printf("result of ft_strcmp : %d\n", ft_strcmp("", ""));
+    printf("---------------------------\n");
+
     printf("-------FT_STRCPY-----------\n");
     printf("result of strcpy : %s\n", strcpy(dest1, "abcd"));
     printf("result of ft_strcpy : %s\n", ft_strcpy(dest2, "abcd"));
@@ -81,5 +85,11 @@ int main()
 	buf[ret_read] = '\0';
 	printf("|%s|\nreturn : [%zd]\n", buf, ret_read);
     close(fd);
+
+    printf("----- FT_STRDUP -----\n");
+    printf("%s\n", strdup("TIL"));
+    printf("%s\n", ft_strdup("TIL"));
+    printf("%s\n", strdup(""));
+    printf("%s\n", ft_strdup(""));
     return (0);
 }
