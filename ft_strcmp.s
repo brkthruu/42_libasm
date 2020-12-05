@@ -19,7 +19,6 @@ _ft_strcmp:
 		je		start_loop			; then loop
 		ja		above
 		jb		below
-		jmp		end
 
 ret_null:
 	cmp		al, bl
@@ -39,5 +38,5 @@ below:
 
 end:
 	pop		rcx
-	sub		rax, rbx
+	mov		rax, 0
 	ret

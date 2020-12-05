@@ -6,7 +6,7 @@
 /*   By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 19:21:35 by hjung             #+#    #+#             */
-/*   Updated: 2020/12/06 07:38:00 by hjung            ###   ########.fr       */
+/*   Updated: 2020/12/06 08:21:57 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int main()
     
     printf("length : %d\n", (int)strlen("Pizza"));
     printf("length : %d\n", (int)ft_strlen("Pizza"));
+    printf("length : %d\n", (int)strlen(""));
+    printf("length : %d\n", (int)ft_strlen(""));
 
     printf("-------FT_STRCMP-----------\n");
     printf("result of strcmp : %d\n", strcmp("\0", "\200"));
@@ -51,8 +53,8 @@ int main()
     printf("result of ft_strcmp : %d\n", ft_strcmp("a\200\0", "abcd"));
     printf("---------------------------\n");
 
-    printf("result of strcmp : %d\n", strcmp("", ""));
-    printf("result of ft_strcmp : %d\n", ft_strcmp("", ""));
+    printf("result of strcmp : %d\n", strcmp("bon", "bon"));
+    printf("result of ft_strcmp : %d\n", ft_strcmp("bon", "bon"));
     printf("---------------------------\n");
 
     printf("-------FT_STRCPY-----------\n");
@@ -70,6 +72,8 @@ int main()
     printf("Error No : %d\n", errno);
     printf("returned value : %zd\n", ft_write(-1, "hello\n", 3));
     printf("Error No : %d\n", errno);
+    printf("returned value : %zd\n", write(1, "hello", 5));
+    printf("returned value : %zd\n", write(1, "hello", 5));
 
     printf("----- FT_READ -----\n");
     ssize_t     ret_read;
