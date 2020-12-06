@@ -10,7 +10,9 @@ _ft_strdup:
 	inc		rax
 	mov		rdi, rax
 
-	call	_malloc
+	call	_malloc		; malloc returns the pointer in rax
+	cmp		rax, 0
+	jz		error
 	pop		rdi
 
 	mov		rsi, rdi
@@ -18,3 +20,6 @@ _ft_strdup:
 	call	_ft_strcpy
 	ret
 
+error:
+	pop		rdi
+	ret
