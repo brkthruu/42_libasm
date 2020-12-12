@@ -6,7 +6,7 @@
 /*   By: hjung <hjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 19:21:35 by hjung             #+#    #+#             */
-/*   Updated: 2020/12/06 08:21:57 by hjung            ###   ########.fr       */
+/*   Updated: 2020/12/13 00:21:45 by hjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int main()
     char    dest1[10];
     char    dest2[10];
     
+    printf("-------FT_STRLEN-----------\n");
     printf("length : %d\n", (int)strlen("Pizza"));
     printf("length : %d\n", (int)ft_strlen("Pizza"));
     printf("length : %d\n", (int)strlen(""));
@@ -72,8 +73,8 @@ int main()
     printf("Error No : %d\n", errno);
     printf("returned value : %zd\n", ft_write(-1, "hello\n", 3));
     printf("Error No : %d\n", errno);
-    printf("returned value : %zd\n", write(1, "hello", 5));
-    printf("returned value : %zd\n", write(1, "hello", 5));
+    printf("returned value : %zd\n", write(1, "hello\n", 6));
+    printf("returned value : %zd\n", write(1, "hello\n", 6));
 
     printf("----- FT_READ -----\n");
     ssize_t     ret_read;
@@ -82,18 +83,21 @@ int main()
     fd = open("ft_write.s", O_RDONLY);
 	ret_read = ft_read(fd, buf, 42);
 	buf[ret_read] = '\0';
-	printf("|%s|\nreturn : [%zd]\n", buf, ret_read);
+	printf("|%s|\nreturn : %zd\n", buf, ret_read);
     close(fd);
+    
     fd = open("ft_write.s", O_RDONLY);
 	ret_read = read(fd, buf, 42);
 	buf[ret_read] = '\0';
-	printf("|%s|\nreturn : [%zd]\n", buf, ret_read);
+	printf("|%s|\nreturn : %zd\n", buf, ret_read);
     close(fd);
 
-    printf("----- FT_STRDUP -----\n");
+    printf("\n----- FT_STRDUP -----\n");
     printf("%s\n", strdup("TIL"));
     printf("%s\n", ft_strdup("TIL"));
     printf("%s\n", strdup(""));
     printf("%s\n", ft_strdup(""));
+    printf("%s\n", strdup("Lorem ipsum dolor sit amet"));
+    printf("%s\n", ft_strdup("Lorem ipsum dolor sit amet"));
     return (0);
 }

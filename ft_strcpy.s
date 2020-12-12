@@ -12,8 +12,8 @@ _ft_strcpy:
 	copy_loop:
 		cmp byte[rsi + rcx], 0
 		jz end
-		mov bl, byte[rsi + rcx]
-		mov byte[rdi + rcx], bl
+		mov bl, byte[rsi + rcx]		; It's necessary to use temporary register
+		mov byte[rdi + rcx], bl		; because memory to memory move is impossible
 		inc rcx
 		jmp copy_loop
 

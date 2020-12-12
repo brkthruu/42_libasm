@@ -1,6 +1,5 @@
-global    start
-
 section   .text
+    global    start
 
 start:
     mov       rax, 0x02000004    ; syscall for write

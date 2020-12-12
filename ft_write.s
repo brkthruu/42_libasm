@@ -13,7 +13,7 @@ _ft_write:
 _error:
 	push rax            ;push errno to stack
 	call ___error       ;return errno address and put it in rax
-	pop rdi							;pop errno value from stack and put it into rdi
+	pop rdi				;pop errno value from stack and put it into rdi
 	mov [rax], rdi
 	mov rax, -1
 	ret

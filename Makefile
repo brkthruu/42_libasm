@@ -15,5 +15,10 @@ clean:
 
 fclean: clean
 		rm -f $(NAME)
+		rm -f test_result
 
 re:	fclean all
+
+test: all
+	gcc -Wall -Werror -Wextra -lasm -L. -I. main.c -o test_result
+	./test_result
